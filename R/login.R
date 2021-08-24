@@ -1,4 +1,14 @@
+#' login
+#' @description a standard login function
+#' @param user
+#' @param pass
+#'
+#' @return
+#' @export
+#'
+#' @examples
 login<-function(user,pass){
+
   userVector<-c("Francisco", "Rafaella")
   passVector<-c("123456","123456")
   authentificationMatrix<-data.frame(userVector, passVector)
@@ -12,7 +22,7 @@ login<-function(user,pass){
   try(
     {
     while(check == FALSE){
-      
+
       if(user == authentificationMatrix[1, i]){
         check<-TRUE
         checkPass<-FALSE
@@ -23,23 +33,23 @@ login<-function(user,pass){
             if(pass == authentificationMatrix[2,j]){
               checkPass<-TRUE
               return(TRUE)
-              
+
             }
             j = j+1
           }
         }, silent = TRUE)
-        if(checkPass == FALSE){ 
+        if(checkPass == FALSE){
           print("Pass invalida")
           checkPass<-FALSE}
       }
-      
+
       i=i+1
     }
   }, silent = T)
-    
-    
-  if(check == FALSE){ 
+
+
+  if(check == FALSE){
     print("Usuario No Registrado")
     check<-FALSE}
-  
+
 }
