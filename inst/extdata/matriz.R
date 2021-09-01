@@ -5,7 +5,7 @@ library(tidyverse)
 library(plotly)
 
 
-data_df <- read.csv("respuestas en filas.csv", sep = ";", na.strings = "")[, -1]
+data_df <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/respuestas%20en%20filas.csv", sep = ";", na.strings = "")[, -1]
 pregunta <- unique(data_df[5])
 
 matrizRelacional<- function(df, criterio1, criterio2){
