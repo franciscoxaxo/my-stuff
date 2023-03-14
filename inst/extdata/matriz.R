@@ -9,8 +9,8 @@ library(plotly)
 
 
 matrizRelacional<- function(df, criterio1, criterio2){
-  subset1 <- data_df %>% dplyr::filter(Question == criterio1)
-  subset2 <- data_df %>% dplyr::filter(Question == criterio2)
+  subset1 <- df %>% dplyr::filter(Question == criterio1)
+  subset2 <- df %>% dplyr::filter(Question == criterio2)
   labelsCol <- as.vector(unique(subset2[[7]]))
   labelsRow <- as.vector(unique(subset1[[7]]))
   rowSubset1 <- nrow(subset1)
