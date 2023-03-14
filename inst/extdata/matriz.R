@@ -5,8 +5,12 @@ library(tidyverse)
 library(plotly)
 
 
-data_df <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/respuestas%20en%20filas.csv", sep = ";", na.strings = "")[, -1]
-pregunta <- unique(data_df[5])
+data_Aire <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/Aire_data.csv", encoding = "UTF-8", sep = ";", na.strings = "")[, -1]
+data_OP <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/OP_df2.csv",, encoding = "UTF-8", sep = ";", na.strings = "")[, -1]
+
+preguntaOP <- unique(data_OP[5])
+preguntaAire <- unique(data_Aire[5])
+
 
 matrizRelacional<- function(df, criterio1, criterio2){
   subset1 <- data_df %>% dplyr::filter(Question == criterio1)
