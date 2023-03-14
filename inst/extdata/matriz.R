@@ -5,8 +5,8 @@ library(tidyverse)
 library(plotly)
 
 
-data_Aire <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/Aire_data.csv", encoding = "UTF-8", sep = ";", na.strings = "")[, -1]
-data_OP <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/OP_df2.csv",, encoding = "UTF-8", sep = ";", na.strings = "")[, -1]
+data_Aire <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/Aire_data.csv", encoding = "UTF-8", sep = ",", na.strings = "")[, -1]
+data_OP <- read.csv("https://raw.githubusercontent.com/franciscoxaxo/my-stuff/main/inst/extdata/OP_df2.csv",, encoding = "UTF-8", sep = ",", na.strings = "")[, -1]
 
 preguntaOP <- unique(data_OP[5])
 preguntaAire <- unique(data_Aire[5])
