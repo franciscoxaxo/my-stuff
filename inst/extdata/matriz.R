@@ -11,8 +11,8 @@ library(plotly)
 matrizRelacional<- function(df, criterio1, criterio2){
   subset1 <- df %>% dplyr::filter(Question == criterio1)
   subset2 <- df %>% dplyr::filter(Question == criterio2)
-  labelsCol <- as.vector(unique(subset2[[7]]))
-  labelsRow <- as.vector(unique(subset1[[7]]))
+  labelsCol <- as.vector(unique(subset2[[6]]))
+  labelsRow <- as.vector(unique(subset1[[6]]))
   rowSubset1 <- nrow(subset1)
   rowSubset2 <- nrow(subset2)
 
@@ -24,12 +24,12 @@ matrizRelacional<- function(df, criterio1, criterio2){
   colnames(baseMatrix) <- labelsCol
 
   for(i in 1:rowSubset1){
-    valueSubset1 <- subset1[i, 7]
+    valueSubset1 <- subset1[i, 6]
     index1 <- subset1[i, 1]
     index_row_matrix <- which(row.names(baseMatrix)== valueSubset1)
     for(j in 1:rowSubset2){
       if(index1 == subset2[j, 1]){
-        valueSubset2 <- subset2[j, 7]
+        valueSubset2 <- subset2[j, 6]
         index_col_matrix <- which(colnames(baseMatrix) == valueSubset2)
         baseMatrix[index_row_matrix, index_col_matrix] = baseMatrix[index_row_matrix, index_col_matrix] + 1
         #print(paste("i. ",i , "j: ", j ))
