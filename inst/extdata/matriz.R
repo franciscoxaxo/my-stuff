@@ -105,7 +105,6 @@ repite_n <-function(nrow,ncol){
 
 
 heatmap<-function(matrix){
-  fig<-
 
 fig<-plot_ly(
   x= colnames(matrix),
