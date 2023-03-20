@@ -93,6 +93,17 @@ sankey <- function(matriz){
 #sankey(matriz)
 
 
+
+repite_n <-function(nrow,ncol){
+  n<- NULL
+  for(i in 1:ncol){
+    x <-rep(i-1,nrow)
+    n<- c(n, x)
+  }
+  return(n)
+}
+
+
 heatmap<-function(matrix){
   fig<-
 
