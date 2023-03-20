@@ -93,3 +93,16 @@ sankey <- function(matriz){
 #sankey(matriz)
 
 
+heatmap<-function(matrix){
+  fig<-plot_ly(
+    x= colnames(matrix),
+    y= row.names(matrix),
+    z= matrix,
+    type= "heatmap",
+    colors = colorRamp(c("white", "blue"))
+    #,    hovertemplate="<b> %{y}  %{x} <br><br> %{z} APL"
+  )
+  return(fig)
+}
+
+
