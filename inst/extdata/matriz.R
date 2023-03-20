@@ -103,27 +103,26 @@ repite_n <-function(nrow,ncol){
   return(n)
 }
 
-
 heatmap<-function(matrix){
-
-fig<-plot_ly(
-  x= colnames(matrix),
-  y= row.names(matrix),
-  z= matrix,
-  type= "heatmap",
-  colors = colorRamp(c("lightcyan", "cornflowerblue"))
-  ,    hovertemplate="<b> %{y}  %{x} <br><br> %{z} APL",
-  showlegend=F
-)%>% add_annotations(
-  x=c(rep(rep(0:(ncol(matrix)-1)),(nrow(matrix)-1))),
-  y =repite_n(ncol(matrix),nrow(matrix)),
-  text = t(matrix),
-  showarrow = F
+  
+  fig<-plot_ly(
+    x= colnames(matrix),
+    y= row.names(matrix),
+    z= matrix,
+    type= "heatmap",
+    colors = colorRamp(c("lightcyan", "cornflowerblue"))
+    ,    hovertemplate="<b> %{y}  %{x} <br><br> %{z} APL",
+    showlegend=F
+  )%>% add_annotations(
+    x=c(rep(rep(0:(ncol(matrix)-1)),(nrow(matrix)-1))),
+    y =repite_n(ncol(matrix),nrow(matrix)),
+    text = t(matrix),
+    showarrow = F
   )
-fig
-
+  
   
   return(fig)
 }
+
 
 
