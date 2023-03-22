@@ -124,5 +124,64 @@ heatmap<-function(matrix){
   return(fig)
 }
 
+sankey3<- function(matriz1, matriz2){
+  
+  
+  matriz1 <- as.data.frame(matriz1)
+  matriz2 <- as.data.frame(matriz2)
+  label <- c(row.names(matriz1), colnames(matriz1), colnames(matriz2))
+  matriz<- cbind(matriz1, matriz2)
+  col <- ncol(matriz)
+  row <- nrow(matriz)
+  #print(label)
+  source <- NULL
+  target <- NULL
+  value <- NULL
+  
+  for(i in 1:row){
+    for(j in 1:col){
+      v <- matriz[i,j]
+      if(v != 0){
+        source <- c(source, i)
+        target <- c(target, j)
+        value  <- c(value,  j)
+      }
+    }
+  }
+  
+  
+  #print(source)
+  #print(value)
+  
+  fig <- plot_ly(
+    type = "sankey",
+    orientation = "h",
+    
+    node = list(
+      label = label,
+      
+      pad = 15,
+      thickness = 20,
+      line = list(
+        color = "black",
+        width = 0.5
+      )
+    ),
+    
+    link = list(
+      source = source,
+      target = target,
+      value =  value
+    )
+  )
+  fig <- fig %>% layout(
+    title = "Basic Sankey Diagram",
+    font = list(
+      size = 10
+    )
+  )
+  
+  return(fig)
+}
 
 
